@@ -30,6 +30,22 @@ app.get("/users", async (req, res) => {
   `);
   }, 2000);
 });
+
+// Handle post route
+app.post("/convert", (req, res) => {
+  setTimeout(() => {
+    const fahrenheit = parseFloat(req.body.fahrenheit);
+    const celisus = (fahrenheit - 32) * (5 / 9);
+
+    res.send(`
+    <p>
+    ${fahrenheit} degree Fahernheit is equal to ${celisus.toFixed(
+      2
+    )} degrees Celisus
+    </p>
+    `);
+  }, 2000);
+});
 // Start the server
 app.listen(3000, () => {
   console.log("Server is listenting 3000");
